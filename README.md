@@ -15,11 +15,18 @@ dynamic.py will read your /etc/hosts file and look for special directives
 that tell it what domain names to look up.
 
 The basic pattern is a pound, followed by the domain name you want to resolve,
-followed by one or more aliases that you want to resolve to the domain name.
+followed by one or more aliases that you want to resolve to the domain name,
+followed by the keyword DYNAMIC.
 
 Example:
 
     #subdomain.dynamic-dns.tld	server1-ext	nas1-ext	DYNAMIC
+
+dynamic.py will change that to something like this:
+
+    #subdomain.dynamic-dns.tld	server1-ext	nas1-ext	DYNAMIC
+    70.71.72.73	server1-ext	nas1-ext # dynamically resolved
+
 
 Then, I add dynamic.py to root's crontab, like so:
 
